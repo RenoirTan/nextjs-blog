@@ -2,13 +2,12 @@ import Head from 'next/head';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
-import Layout from '../../../components/layout';
 
 export default async function Post({ params }) {
   const postData = await getPostData(params.id);
   // we are explicitly trusting remark to not put xss stuff in our website
   return (
-    <Layout>
+    <>
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -19,7 +18,7 @@ export default async function Post({ params }) {
         </div>
         <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
       </article>
-    </Layout>
+    </>
   );
 }
 
