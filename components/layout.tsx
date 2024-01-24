@@ -4,8 +4,9 @@ import styles from './layout.module.css';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
-const name = 'Your Name';
-export const siteTitle = 'Next.js Sample Website';
+const name: string = 'Your Name';
+export const siteTitle: string = 'Next.js Sample Website';
+export const siteDescription: string = 'Next.js Sample Website'
 
 export default function Layout({ children, home }: {children: any; home?: boolean }) {
   return (

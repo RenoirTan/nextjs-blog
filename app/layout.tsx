@@ -9,9 +9,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <head>
-        <title>{siteTitle}</title>
-      </head>
       <body>
         <main>
           {children}

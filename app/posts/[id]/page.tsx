@@ -1,7 +1,32 @@
+import { Metadata, ResolvingMetadata } from 'next';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { notFound } from 'next/navigation';
+
+
+type Props = {
+  params: { id: string };
+  searchParams: { [key: string]: string | string[] | undefined }
+};
+
+
+export async function generateMetadata(
+  { params, searchParams }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  // this is so wasteful
+  try {
+    var postData = await getPostData(params.id); // normally i'd disavow var
+  } catch {
+    notFound();
+  }
+  return {
+    title: postData.title,
+    description: "uh oh"
+  }
+}
+
 
 export default async function Page({ params }) {
   try {
@@ -12,9 +37,6 @@ export default async function Page({ params }) {
   // we are explicitly trusting remark to not put xss stuff in our website
   return (
     <>
-      <head>
-        <title>{postData.title}</title>
-      </head>
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>

@@ -1,8 +1,15 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Date from '../components/date';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle, siteDescription } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
+
+
+export const metadata: Metadata = {
+  title: siteTitle,
+  description: siteDescription
+};
 
 
 export default function Page() {
