@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import Head from 'next/head';
 import Link from 'next/link';
 import Date from '../components/date';
@@ -9,14 +10,14 @@ import { getSortedPostsData } from '../lib/posts';
   Static Generation - getStaticProps
   Server-side Rendering - getServerSideProps
  */
-export async function getStaticProps() {
+export const getStaticProps = (async function (context) {
   const allPostsData = getSortedPostsData();
   return {
     props: {
       allPostsData
     }
   };
-}
+}) satisfies GetStaticProps;
 
 export default function Home({ allPostsData }) {
   return (
