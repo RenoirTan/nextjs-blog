@@ -6,6 +6,8 @@ import utilStyles from '../../../styles/utils.module.css';
 import { notFound } from 'next/navigation';
 
 
+// Does not seem to persist across page refreshes despite using SSG
+// which is a good thing
 const getCachedPostData = cache(async (id: string) => getPostData(id));
 
 
