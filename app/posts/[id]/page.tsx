@@ -1,8 +1,12 @@
 import { Metadata, ResolvingMetadata } from 'next';
+import { cache } from 'react';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
 import { notFound } from 'next/navigation';
+
+
+const getCachedPostData = cache(async (id: string) => getPostData(id));
 
 
 type Props = {
@@ -17,7 +21,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   // this is so wasteful
   try {
-    var postData = await getPostData(params.id); // normally i'd disavow var
+    var postData = await getCachedPostData(params.id);
   } catch {
     notFound();
   }
@@ -30,7 +34,7 @@ export async function generateMetadata(
 
 export default async function Page({ params }) {
   try {
-    var postData = await getPostData(params.id); // normally i'd disavow var
+    var postData = await getCachedPostData(params.id); // normally i'd disavow var
   } catch {
     notFound();
   }
