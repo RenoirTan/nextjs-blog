@@ -5,7 +5,7 @@ import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 
 
-export default function Home() {
+export default function Page() {
   const allPostsData = getSortedPostsData();
   return (
     <Layout home>

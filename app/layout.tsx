@@ -13,7 +13,9 @@ export default function RootLayout({
         <title>{siteTitle}</title>
       </head>
       <body>
-        {children}
+        <main>
+          {children}
+        </main>
       </body>
     </html>
   )
