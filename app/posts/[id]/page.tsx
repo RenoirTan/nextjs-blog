@@ -1,4 +1,3 @@
-import Head from 'next/head';
 import { getAllPostIds, getPostData } from '../../../lib/posts';
 import Date from '../../../components/date';
 import utilStyles from '../../../styles/utils.module.css';
@@ -8,9 +7,9 @@ export default async function Post({ params }) {
   // we are explicitly trusting remark to not put xss stuff in our website
   return (
     <>
-      <Head>
+      <head>
         <title>{postData.title}</title>
-      </Head>
+      </head>
       <article>
         <h1 className={utilStyles.headingXl}>{postData.title}</h1>
         <div className={utilStyles.lightText}>

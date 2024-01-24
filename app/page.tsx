@@ -1,5 +1,3 @@
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 import Date from '../components/date';
 import Layout, { siteTitle } from '../components/layout';
@@ -11,9 +9,6 @@ export default function Home() {
   const allPostsData = getSortedPostsData();
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>

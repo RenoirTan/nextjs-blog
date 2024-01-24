@@ -1,4 +1,4 @@
-import Layout from '../components/layout';
+import { siteTitle } from '../components/layout';
 
 export default function RootLayout({
   // Layouts must accept a children prop.
@@ -9,6 +9,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <title>{siteTitle}</title>
+      </head>
       <body>
         {children}
       </body>

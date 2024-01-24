@@ -8,8 +8,10 @@ export default function PostsLayout({
   children: React.ReactNode
 }) {
   return (
-    <Layout>
-      {children}
-    </Layout>
+    <>
+      <Layout>
+        {children}
+      </Layout>
+    </>
   )
 }
