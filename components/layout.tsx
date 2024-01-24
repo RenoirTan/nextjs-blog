@@ -50,7 +50,7 @@ export default function Layout({ children, home }: {children: any; home?: boolea
                 alt=""
               />
             </Link>
-              <h2 className={`text-2xl font-bold underline my-3`}>
+            <h2 className={`text-2xl font-bold underline my-3`}>
               <Link href="/" className={utilStyles.colorInherit}>
                 {name}
               </Link>
