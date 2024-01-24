@@ -1,6 +1,4 @@
-import Layout from '../../../components/layout';
-
-export default function RootLayout({
+export default function PostsLayout({
   // Layouts must accept a children prop.
   // This will be populated with nested layouts or pages
   children
@@ -8,10 +6,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body>
-        <Layout>{children}</Layout>
-      </body>
-    </html>
+    <>
+      {children}
+    </>
   )
 }
