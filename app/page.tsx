@@ -1,30 +1,21 @@
-import { GetStaticProps } from 'next';
-import Head from 'next/head';
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Date from '../components/date';
-import Layout, { siteTitle } from '../components/layout';
+import Layout, { siteTitle, siteDescription } from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
 
-/*
-  Static Generation - getStaticProps
-  Server-side Rendering - getServerSideProps
- */
-export const getStaticProps = (async function (context) {
-  const allPostsData = getSortedPostsData();
-  return {
-    props: {
-      allPostsData
-    }
-  };
-}) satisfies GetStaticProps;
 
-export default function Home({ allPostsData }) {
+export const metadata: Metadata = {
+  title: siteTitle,
+  description: siteDescription
+};
+
+
+export default function Page() {
+  const allPostsData = getSortedPostsData();
   return (
     <Layout home>
-      <Head>
-        <title>{siteTitle}</title>
-      </Head>
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
         <h2 className={utilStyles.headingLg}>Blog</h2>
         <ul className={utilStyles.list}>
